@@ -37,7 +37,6 @@ function renderPlainText(data) {
   let result = `Statement for ${data.customer}\n`;
 
   for (let perf of data.performances) {
-    // print line for this order
     result += `  ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
   }
   result += `Amount owed is ${usd(data.totalAmount)}\n`;
@@ -116,11 +115,9 @@ class PerformanceCalculator {
     this.performance = aPerformance;
     this.play = aPlay
   }
-
   get amount() {
     throw new Error('サブクラスの責務');
   }
-
   get volumeCredits() {
     return Math.max(this.performance.audience - 30, 0);
   }
@@ -144,7 +141,6 @@ class ComedyCalculator extends PerformanceCalculator {
     result += 300 * this.performance.audience;
     return result;
   }
-
   get volumeCredits() {
     return super.volumeCredits + Math.floor(this.performance.audience / 5);
   }

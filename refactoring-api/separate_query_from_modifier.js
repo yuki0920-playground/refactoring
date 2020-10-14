@@ -1,12 +1,14 @@
 function alertForMiscreant (people) {
+  if (findMiscreant(people) !== '') setOffAlerms();
+}
+
+function findMiscreant (people) {
   for (const person of people) {
     if (person === 'Don') {
-      setOfffAlarms();
-      return 'Don';
+      return;
     }
     if (person === 'John') {
-      setOfffAlarms();
-      return 'John';
+      return;
     }
   }
   return '';

@@ -13,4 +13,7 @@ class Employee {
 }
 
 // # Client
-candidate = new Employee(document.name, document.empType);
+function createEmployee(name, typeCode) {
+  return new Employee(name, typeCode);
+}
+candidate = new createEmployee(document.name, document.empType);

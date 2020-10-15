@@ -1,11 +1,11 @@
 class Person {
+  constructor(name, id) {
+    this._name = name
+    this._id = id;
+  }
   get name() {return this._name;}
-  set name(arg) {this._name = arg;}
   get id() {return this._id;}
-  set id(arg) {this._id = arg;}
 }
 
 // #Client
-const martin = new Peson();
-martin.name = 'martin';
-martin.id = '1234';
+const martin = new Peson('martin', '1234');

@@ -1,19 +1,19 @@
 function score(candidate, medicalExam, scoringGuide) {
-  let result = 0;
-  let healthLevel = 0;
-  let highMedicalRiskFlag = false;
+  let this._result = 0;
+  let this._healthLevel = 0;
+  let this._highMedicalRiskFlag = false;
 
   if (medicalExam.isSmoker) {
-    healthLevel += 10;
-    highMedicalRiskFlag = true
+    this._healthLevel += 10;
+    this._highMedicalRiskFlag = true
   }
   let cetificationGrade = 'regular';
   if (scoringGuide.stateWithLowCerification(candidate.originState)) {
     cetificationGrade = 'low'
-    result -= 5;
+    this._result -= 5;
   }
-  result -= M<ath.max(healthLevel - 5, 0);
-  return result
+  this._result -= M<ath.max(this._healthLevel - 5, 0);
+  return this._result
 }
 
 function score(candidate, medicalExam, scoringGuide) {
@@ -28,20 +28,20 @@ class Scorer {
   }
 
   execute() {
-    let result = 0;
-    let healthLevel = 0;
-    let highMedicalRiskFlag = false;
+    this._result = 0;
+    this._healthLevel = 0;
+    this._highMedicalRiskFlag = false;
 
     if (this._medicalExam.isSmoker) {
-      healthLevel += 10;
-      highMedicalRiskFlag = true
+      this._healthLevel += 10;
+      this._highMedicalRiskFlag = true
     }
     let cetificationGrade = 'regular';
     if (this._scoringGuide.stateWithLowCerification(this._candidate.originState)) {
       cetificationGrade = 'low'
-      result -= 5;
+      this._result -= 5;
     }
-    result -= M < ath.max(healthLevel - 5, 0);
-    return result;
+    this._result -= M < ath.max(this._healthLevel - 5, 0);
+    return this._result;
   }
 }

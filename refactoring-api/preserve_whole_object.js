@@ -1,12 +1,9 @@
 // client
-const low = aRoom.daysTemprange.low;
-const high = aRoom.daysTemprange.high;
-if (!aPlan.withinRange(low, high)) {
+if (!aPlan.withinRange(aRoom.daysTemprange)) {
   alerts.push('室温が設定値を超えました');
 }
 
-
 // class HeatingPlan
-withinRange(bottom, top) {
-  return (bottom > this._temparatureRange.low) && (top <= this._temparatureRange.high);
+withinRange(aNumberOfRange) {
+  return (aNumberOfRange.bottom > this._temparatureRange.low) && (aNumberOfRange.high <= this._temparatureRange.high);
 }

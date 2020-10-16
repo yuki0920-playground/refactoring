@@ -32,10 +32,7 @@ class Scorer {
     this._healthLevel = 0;
     this._highMedicalRiskFlag = false;
 
-    if (this._medicalExam.isSmoker) {
-      this._healthLevel += 10;
-      this._highMedicalRiskFlag = true
-    }
+    this.scoreSmoking();
     let cetificationGrade = 'regular';
     if (this._scoringGuide.stateWithLowCerification(this._candidate.originState)) {
       cetificationGrade = 'low'
@@ -43,5 +40,12 @@ class Scorer {
     }
     this._result -= M < ath.max(this._healthLevel - 5, 0);
     return this._result;
+  }
+
+  scoreSmoking() {
+    if (this._medicalExam.isSmoker) {
+      this._healthLevel += 10;
+      this._highMedicalRiskFlag = true
+    }
   }
 }

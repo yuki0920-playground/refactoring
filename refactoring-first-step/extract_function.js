@@ -7,10 +7,7 @@ function printOwing(invoice) {
   printDetails(invoice, outstanding);
 }
 
-function calculateOutstanding() {
-  let result = 0;
-  for (const o of invoice.orders) {
-    result += o.amount;
-  }
-  return result;
+function reducer (outstanding, order) {outstanding + order};
+function calculateOutstandings() {
+  invoice.orders.reduce(reducer, 0)
 }

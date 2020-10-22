@@ -1,10 +1,17 @@
 class Order {
   constructor(data) {
-    this.priority = data.priority;
+    this.priority = new Priority(data.priority);
   }
+  get priorityString() {return this.priority.toString;}
+  set priority(aString) {this.priority = new Priority(aString);}
+}
+
+class Priority {
+  constructor(value) {this.value = value;}
+  toString() {return this.value;}
 }
 
 // # client
 highPriorityCount = orders.filter(order =>
-  order.priority === 'high' || order.priority === 'rush'
+  order.priorityString === 'high' || order.priorityString === 'rush'
 ).length
